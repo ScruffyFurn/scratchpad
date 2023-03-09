@@ -8,7 +8,7 @@ This document covers the investigation into using Azure Durable Functions to imp
 
 Durable Functions is an extension of Azure Functions. You can use Durable Functions for stateful orchestration of function execution. A durable function app is a solution that's made up of different Azure functions. Functions can play different roles in a durable function orchestration.
 
-There are currently four durable function types in Azure Functions: activity, orchestrator, entity, and client.
+There are currently four durable function types in Azure Functions: [activity](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-types-features-overview#activity-functions), [orchestrator](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-types-features-overview#orchestrator-functions), [entity](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-types-features-overview#entity-functions), and [client](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-types-features-overview#client-functions).
 
 More about Durable Functions can be found in [this article](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=java)
 
@@ -46,16 +46,16 @@ Some key capabilities of Azure Durable Functions that pertain to the problem sol
 
 ### Various Function Types
 
-- __Orchestrator functions__:
+- [__Orchestrator functions__](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-types-features-overview#orchestrator-functions):
 Orchestrator functions describe how actions are executed and the order in which actions are executed.
 
-- __Activity functions__:
+- [__Activity functions__](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-types-features-overview#activity-functions):
 Activity functions are the basic unit of work in a durable function orchestration. Activity functions are the functions and tasks that are orchestrated in the process.
 
-- __Entity functions__:
+- [__Entity functions__](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-types-features-overview#entity-functions):
 Entity functions define operations for reading and updating small pieces of state.
 
-- __Client functions__:
+- [__Client functions__](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-types-features-overview#client-functions):
 Orchestrator functions are triggered by an orchestration trigger binding and entity functions are triggered by an entity trigger binding. Both of these triggers work by reacting to messages that are enqueued into a task hub.
 
 ### Task hub
@@ -63,25 +63,25 @@ Orchestrator functions are triggered by an orchestration trigger binding and ent
 A task hub in Durable Functions is a representation of the current state of the application in storage, including all the pending work. While a function app is running, the progress of orchestration, activity, and entity functions is continually stored in the task hub. This ensures that the application can resume processing where it left off, should it require to be restarted after being temporarily stopped or interrupted for some reason. Also, it allows the function app to scale the compute workers dynamically.
 
 
-For more information and for examples, see the Task hub article.
+For more information and for examples, see the [Task hub article.](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-task-hubs?tabs=csharp)
 
 ### Sub-orchestrations
 
 Orchestrator functions can call activity functions, but also other orchestrator functions. For example, you can build a larger orchestration out of a library of orchestrator functions. Or, you can run multiple instances of an orchestrator function in parallel.
 
-For more information and for examples, see the Sub-orchestrations article.
+For more information and for examples, see the [Sub-orchestrations article.](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-sub-orchestrations?tabs=java)
 
 ### Durable timers
 
 Orchestrations can schedule durable timers to implement delays or to set up timeout handling on async actions. Use durable timers in orchestrator functions instead of language-native "sleep" APIs.
 
-For more information and for examples, see the Durable timers article.
+For more information and for examples, see the [Durable timers article.](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-timers?tabs=java)
 
 ### External events
 
 Orchestrator functions can wait for external events to update an orchestration instance. This Durable Functions feature often is useful for handling a human interaction or other external callbacks.
 
-For more information and for examples, see the External events article.
+For more information and for examples, see the [External events article.](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-external-events?tabs=java)
 
 ### Error handling
 
@@ -93,8 +93,10 @@ More information and examples of error handling and retries can be found in the 
 
 For the monitoring of Durable Functions, Application Insights could be leveraged for observability. Application Insights is an extension of Azure Monitor and provides Application Performance Monitoring (also known as “APM”) features.
 
-For more information and for examples, see the Application Insight article.
+For more information and for examples, see the [Application Insight article.](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview?tabs=java)
 
 ## Resources
 
+[Durable Function Documentation](https://learn.microsoft.com/en-us/azure/azure-functions/durable/)
 
+[BPMN 2.0](http://www.omg.org/spec/BPMN/2.0/)
