@@ -32,6 +32,10 @@ The following workflow tasks, 201, 301, and 401, can be implemented using activi
 
 ### Message Based
 
+In the message based pattern, a [service bus](https://azure.microsoft.com/en-ca/products/service-bus/), [event hub](https://learn.microsoft.com/en-us/azure/event-hubs/), or even a [task hub](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-task-hubs?tabs=java) is used as the state controller. Using message based trigger functions we can preform the workflows steps as independent Durable functions or just Functions. In this pattern the messaging bus acts as the "state machine", states changed through the passing of messages. A watch function can be deployed to oversee the message queue and trigger timed events.
+
+A diagram of the B3 workflow using a message based function pattern:
+
 ![Functions](img/Functions.png)
 
 ## Authoring
