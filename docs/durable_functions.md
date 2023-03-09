@@ -58,6 +58,13 @@ Entity functions define operations for reading and updating small pieces of stat
 - __Client functions__:
 Orchestrator functions are triggered by an orchestration trigger binding and entity functions are triggered by an entity trigger binding. Both of these triggers work by reacting to messages that are enqueued into a task hub.
 
+### Task hub
+
+A task hub in Durable Functions is a representation of the current state of the application in storage, including all the pending work. While a function app is running, the progress of orchestration, activity, and entity functions is continually stored in the task hub. This ensures that the application can resume processing where it left off, should it require to be restarted after being temporarily stopped or interrupted for some reason. Also, it allows the function app to scale the compute workers dynamically.
+
+
+For more information and for examples, see the Task hub article.
+
 ### Sub-orchestrations
 
 Orchestrator functions can call activity functions, but also other orchestrator functions. For example, you can build a larger orchestration out of a library of orchestrator functions. Or, you can run multiple instances of an orchestrator function in parallel.
@@ -80,14 +87,14 @@ For more information and for examples, see the External events article.
 
 Orchestrator functions can use the error-handling features of the programming language. Existing patterns like try/catch are supported in orchestration code.
 
+More information and examples of error handling and retries can be found in the [Azure Functions error handling and retries article](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-error-pages?tabs=fixed-delay%2Cin-process&pivots=programming-language-java)
+
 ## Monitoring
 
+For the monitoring of Durable Functions, Application Insights could be leveraged for observability. Application Insights is an extension of Azure Monitor and provides Application Performance Monitoring (also known as “APM”) features.
 
-Points of comparison
+For more information and for examples, see the Application Insight article.
 
-1. Ability for multiple teams to leverage state machine and build code
-2. Templates for other teams to build on top of
-3. Workflow definition
-4. Failures and retries
-5. State store for application
-6. Observability for the application
+## Resources
+
+
